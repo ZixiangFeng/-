@@ -310,14 +310,19 @@ def record_conversation_once():
     session["recorded"] = True
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
+    return render_template("index.html")
+
+
+@app.route("/setup", methods=["GET", "POST"])
+def setup():
     if request.method == "POST":
         task = request.form.get("task")
 
         if task not in VALID_TASKS:
             return render_template(
-                "index.html",
+                "setup.html",
                 error="请选择一个关系角色。",
             )
 
@@ -325,7 +330,7 @@ def index():
         session["pending_task"] = task
         return redirect(url_for("conditions"))
 
-    return render_template("index.html")
+    return render_template("setup.html")
 
 
 @app.route("/conditions", methods=["GET", "POST"])
