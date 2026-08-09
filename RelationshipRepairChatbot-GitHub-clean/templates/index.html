@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>“男闺蜜”聊天机器人实验测试</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="cover-page">
+    <main class="cover-stage" aria-label="实验测试封面">
+        <div class="cover-art">
+            <img
+                class="cover-image"
+                src="{{ url_for('static', filename='img/lab-cover.png') }}"
+                alt="Trust Personal AI Lab 男闺蜜聊天机器人实验测试 BETA 2.0"
+            >
+            <a class="cover-hotspot" href="{{ url_for('setup') }}" aria-label="开始体验"></a>
+        </div>
+    </main>
+</body>
+</html>
