@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>关系修复聊天机器人</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="control-page">
+    <main class="control-panel">
+        <p class="step-label">Setting</p>
+        <h1>设置实验条件</h1>
+        <p class="selection-summary">
+            可先使用
+            <a class="inline-link" href="{{ url_for('randomizer') }}">随机分组模拟器</a>
+            抽取条件，再在本页设置对应组别。
+        </p>
+
+        {% if preset and preset.condition %}
+            <p class="preset-summary">
+                已载入随机抽取结果：条件 {{ preset.condition }}。请核对下方勾选项后，点击“进入聊天器”。
+            </p>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="post" class="condition-form">
+            <fieldset>
+                <legend>关系角色</legend>
+                <label><input type="radio" name="task" value="victim" required {% if preset and preset.task == "victim" %}checked{% endif %}> 受伤害者任务</label>
+                <label><input type="radio" name="task" value="transgressor" required {% if preset and preset.task == "transgressor" %}checked{% endif %}> 过错方任务</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>信息框架</legend>
+                <label><input type="radio" name="frame" value="gain" required {% if preset and preset.frame == "gain" %}checked{% endif %}> 收益框架</label>
+                <label><input type="radio" name="frame" value="loss" required {% if preset and preset.frame == "loss" %}checked{% endif %}> 损失框架</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>共情沟通</legend>
+                <label><input type="radio" name="empathy" value="high" required {% if preset and preset.empathy == "high" %}checked{% endif %}> 高共情</label>
+                <label><input type="radio" name="empathy" value="low" required {% if preset and preset.empathy == "low" %}checked{% endif %}> 低共情</label>
+            </fieldset>
+
+            <div class="form-actions">
+                <a class="secondary-link" href="{{ url_for('index') }}">返回封面页</a>
+                <button type="submit">进入聊天器</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

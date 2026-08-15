@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>随机分组模拟器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="control-page">
+    <main class="control-panel randomizer-panel">
+        <p class="step-label">实验人员工具</p>
+        <h1>2 × 2 × 2 随机分组模拟器</h1>
+
+        <p class="helper-text">
+            为尽量保证各实验条件样本量均衡，系统采用八个实验条件等概率随机分配。实验人员可先点击随机抽取，再根据抽取结果进入 setting 页面一次性设置三个实验因素。
+        </p>
+
+        <section id="randomResult" class="random-result" aria-live="polite">
+            <span>尚未抽取</span>
+        </section>
+
+        <div class="form-actions randomizer-actions">
+            <button id="drawConditionButton" type="button">随机抽取条件</button>
+            <a id="setupPresetLink" class="button-link" href="{{ url_for('setup') }}">进入 setting 设置</a>
+        </div>
+
+        <table class="condition-table">
+            <thead>
+                <tr>
+                    <th>条件</th>
+                    <th>关系角色</th>
+                    <th>信息框架</th>
+                    <th>共情水平</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>受伤害者</td><td>收益框架</td><td>高共情</td></tr>
+                <tr><td>2</td><td>受伤害者</td><td>收益框架</td><td>低共情</td></tr>
+                <tr><td>3</td><td>受伤害者</td><td>损失框架</td><td>高共情</td></tr>
+                <tr><td>4</td><td>受伤害者</td><td>损失框架</td><td>低共情</td></tr>
+                <tr><td>5</td><td>过错方</td><td>收益框架</td><td>高共情</td></tr>
+                <tr><td>6</td><td>过错方</td><td>收益框架</td><td>低共情</td></tr>
+                <tr><td>7</td><td>过错方</td><td>损失框架</td><td>高共情</td></tr>
+                <tr><td>8</td><td>过错方</td><td>损失框架</td><td>低共情</td></tr>
+            </tbody>
+        </table>
+
+        <a class="secondary-link" href="{{ url_for('index') }}">返回封面页</a>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/randomizer.js') }}"></script>
+</body>
+</html>

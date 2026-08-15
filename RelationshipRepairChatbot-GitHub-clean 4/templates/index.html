@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>“男闺蜜”聊天机器人实验测试</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="cover-page">
+    <main class="cover-stage" aria-label="实验测试封面">
+        <div class="cover-art cover-desktop-art">
+            <img
+                class="cover-image"
+                src="{{ url_for('static', filename='img/lab-cover.png') }}"
+                alt="Trust Personal AI Lab 男闺蜜聊天机器人实验测试 BETA 2.0"
+            >
+            <a class="cover-hotspot" href="{{ url_for('setup') }}" aria-label="开始体验"></a>
+        </div>
+
+        <section class="cover-mobile-art" aria-label="实验测试封面">
+            <div class="mobile-lab-mark">
+                <span class="mobile-logo-block">AI</span>
+                <span>Trust Personal<br>AI Lab</span>
+            </div>
+            <h1>“男闺蜜”聊天机器人</h1>
+            <p>实验测试：BETA 2.0</p>
+            <a class="button-link mobile-start-button" href="{{ url_for('setup') }}">开始体验</a>
+            <div class="mobile-team-text">
+                <span>指导老师：曹淮教授</span>
+                <span>团队负责人：冯子祥</span>
+                <span>团队成员：尹语桐，张恩琪，陈玉轩</span>
+            </div>
+        </section>
+
+        <div class="cover-tools">
+            <a class="randomizer-entry" href="{{ url_for('randomizer') }}">实验人员随机分组模拟器</a>
+        </div>
+    </main>
+</body>
+</html>
